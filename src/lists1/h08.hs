@@ -4,13 +4,12 @@
 
 -- This is an ideal situation for using a set, however in the spirit of the
 -- problem, I have avoided doing so.
--- TODO: see about optimizing this solution; the list concat is not ideal
 helper :: (Eq a) => [a] -> [a] -> [a]
 helper [] set = set
 helper (x:xs) set =
     if x `notElem` set
-        then helper xs $ set ++ [x]
+        then helper xs $ x : set
         else helper xs set
 
 compressList :: (Eq a) => [a] -> [a]
-compressList list = helper list []
+compressList list = reverse $ helper list []
