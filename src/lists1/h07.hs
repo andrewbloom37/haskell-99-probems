@@ -1,5 +1,3 @@
---  (*) Find out whether a list is a palindrome. A palindrome can be read
---      forward or backward; e.g. (x a m a x).
+-- (**) Flatten a nested list structure.
 
-isPalindrome :: (Eq a) => [a] -> Bool
-isPalindrome list = reverse list == list
+-- Transform a list, possibly holding lists as elements into a `flat' list by replacing each list with its elements (recursively).

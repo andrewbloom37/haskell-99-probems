@@ -1,8 +1,13 @@
---(*) Find the number of elements of a list.
+-- (*) Reverse a list.
 
-customLength :: [a] -> Int
-customLength list =
+helper :: [a] -> [a] -> [a]
+helper [] stack = stack
+helper (x:xs) stack = helper xs $ x : stack
+
+listReverse :: [a] -> [a]
+listReverse list =
     case list of
-        []     -> 0
-        [x]    -> 1
-        (_:xs) -> 1 + customLength xs
+        []    -> []
+        [x]   -> [x]
+        [x,y] -> [y,x]
+        list  -> helper list []
