@@ -10,5 +10,4 @@ packList :: (Eq a) => [a] -> [[a]]
 packList list =
     case list of
         []     -> []
-        [x]    -> [[x]]
         (x:xs) -> helper xs x [x] []
